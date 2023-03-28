@@ -1,0 +1,17 @@
+{
+  "name": "artilleryengineplaywright",
+  "version": "1.0.0",
+  "description": "Artillery Engine Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "artillery run --output report/report.json ./scenarios/view-cctv-details.yml; artillery report --output report/report.html report/report.json",
+    "test.local": "artillery run -e local --output report/report.json ./scenarios/checkout-load.yml; artillery report --output report/report.html report/report.json",
+    "test.staging": "artillery run -e staging --output report/report.json ./scenarios/checkout-load.yml; artillery report --output report/report.html report/report.json"
+  },
+  "author": "Thuan Nguyen",
+  "license": "ISC",
+  "devDependencies": {
+    "artillery": "^2.0.0-31",
+    "artillery-engine-playwright": "^0.2.1"
+  }
+}

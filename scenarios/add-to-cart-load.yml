@@ -1,0 +1,32 @@
+config:
+  target: "https://shop.polymer-project.org"
+  phases:
+    # - duration: 150
+    #   arrivalRate: 10
+    #   rampTo: 60
+    #   maxVusers: 70
+    #   name: Ramp up - maxVusers vs rampTo
+    - duration: 60
+      arrivalCount: 10
+      name: Ramp up - arrivalCount
+  environments:
+    staging:
+      target: https://shop.polymer-project.org/
+      phases:
+        - duration: 30
+          arrivalCount: 30
+          name: Ramp up - Staging environment
+    local:
+      target: https://shop.polymer-project.org/
+      phases:
+        - duration: 10
+          arrivalCount: 10
+          name: Ramp up - Local environment
+  engines:
+    playwright: {} 
+  processor: ../processors/flows.js
+scenarios:
+  - name: "Add To Card"
+    engine: playwright
+    flowFunction: "AddToCard"
+    flow: []

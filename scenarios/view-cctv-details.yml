@@ -1,0 +1,16 @@
+config:
+  target: "https://tst-1.tst.vicdot.au.optimalreality.com/situational-awareness"
+  phases:
+    - duration: 100
+      arrivalRate: 1
+      rampTo: 4
+      maxVusers: 7
+      name: Ramp up - arrivalCount
+  engines:
+    playwright: {} 
+  processor: ../processors/cctv-details-flow.js
+scenarios:
+  - name: "CCTV details flow"
+    engine: playwright
+    flowFunction: "ShowDeviceDetails"
+    flow: []
